@@ -5,6 +5,7 @@ import Login from './components/login.tsx';
 import ForgotPassword from './components/forgotPassword.tsx';
 import Users from './components/users.tsx';
 import CreateProcess from './components/createProcess.tsx';
+import CpResp from './components/cpResp.tsx';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/catalogos/usuarios" element={<Users/>}/>
           <Route path="/certificaciones/crear" element={<CreateProcess/>}/>
+          <Route path="/certificaciones/asignar-responsables" element={<CpResp/>}/>
         </Routes>
       </div>
     </Router>
