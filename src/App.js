@@ -7,6 +7,8 @@ import Users from './components/users.tsx';
 import CreateProcess from './components/createProcess.tsx';
 import CpResp from './components/cpResp.tsx';
 import Record from './components/record.tsx';
+import SeeOrganism from './components/seeOrganism.tsx';
+import ConfigOrganism from './components/configOrganism.tsx';
 
 
 function App() {
@@ -20,7 +22,9 @@ function App() {
           <Route path="/catalogos/usuarios" element={<Users/>}/>
           <Route path="/certificaciones/crear" element={<CreateProcess/>}/>
           <Route path="/certificaciones/asignar-responsables" element={<CpResp/>}/>
-          <Route path="certificaciones/historial" element={<Record/>}/>
+          <Route path="/certificaciones/historial" element={<Record/>}/>
+          <Route path="/organismos/ver" element={<SeeOrganism/>}/>
+          <Route path="organismos/configurar" element={<ConfigOrganism/>}/>
         </Routes>
       </div>
     </Router>
