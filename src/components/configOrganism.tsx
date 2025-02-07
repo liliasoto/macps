@@ -88,7 +88,7 @@ const ConfigOrganism: React.FC = () => {
     <div className="main-container">
       <Bar />
       <main className="config-org-content">
-        <h1>Configurar Organismo</h1>
+        <h1>Configurar organismo</h1>
         <select
           value={selectedOrganismId || ""}
           onChange={(e) => setSelectedOrganismId(Number(e.target.value))}

@@ -39,7 +39,7 @@ const CreateProcess: React.FC = () => {
     <div className="main-container">
       <Bar />
       <main className="create-process-content">
-        <h1>Crear Proceso de Certificación</h1>
+        <h1>Crear proceso de certificación</h1>
         <form onSubmit={handleSubmit} className="create-process-form">
           <div className="form-group">
             <label htmlFor="carrera">Carrera</label>

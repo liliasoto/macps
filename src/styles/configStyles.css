@@ -5,10 +5,9 @@
     margin: 0 auto;
   }
   
-  .config-org-content > * {
+  .config-org-content{
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0px;
   }
   
   h1 {
@@ -17,14 +16,15 @@
     text-align: center;
   }
   
-  .organism-select,
-  .sub-select {
+  .organism-select{
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    display: flex;
+    justify-content: center;
   }
   
   .config-section {
@@ -32,6 +32,12 @@
     border: 1px solid #e0e0e0;
     border-radius: 4px;
     overflow: hidden;
+  }
+
+  h2 {
+    color: #3533cd;
+    margin-bottom: 20px;
+    font-size: large;
   }
   
   .config-section h2 {
@@ -48,6 +54,18 @@
     padding: 20px;
   }
   
+  .sub-select {
+    width: fit-content;
+    padding: 10px;
+    margin: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
   .navigation-controls {
     display: flex;
     justify-content: center;
@@ -72,7 +90,7 @@
   }
   
   textarea {
-    width: 100%;
+    width: 98%;
     height: 100px;
     padding: 10px;
     margin-bottom: 10px;

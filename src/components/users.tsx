@@ -126,7 +126,7 @@ const Users: React.FC = () => {
     <div className="main-container">
       <Bar />
       <main className="users-main-content">
-        <h1>Gestión de Usuarios</h1>
+        <h1>Gestión de usuarios</h1>
         <div className="users-controls">
           <select
             name="Departamentos"
