@@ -165,12 +165,14 @@ const Users: React.FC = () => {
                   <td>{usuario.rol}</td>
                   <td>{usuario.departamento}</td>
                   <td>
-                    <button className="action-button edit" onClick={() => handleEditUser(usuario)}>
-                      Editar
-                    </button>
-                    <button className="action-button delete" onClick={() => handleDeleteUser(usuario.id)}>
-                      Eliminar
-                    </button>
+                    <div className="actions-cell">
+                      <button className="action-button edit" onClick={() => handleEditUser(usuario)}>
+                        Editar
+                      </button>
+                      <button className="action-button delete" onClick={() => handleDeleteUser(usuario.id)}>
+                        Eliminar
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -224,14 +226,14 @@ const UserModal: React.FC<UserModalProps> = ({ mode, user, onSave, onClose }) =>
   return (
     <div className="modal-overlay">
       <div className="modal">
-        <h2>{mode === "add" ? "Nuevo Usuario" : "Editar Usuario"}</h2>
+        <h2>{mode === "add" ? "Nuevo usuario" : "Editar usuario"}</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="nombre">Nombre*</label>
             <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label htmlFor="apellidoPaterno">Apellido Paterno*</label>
+            <label htmlFor="apellidoPaterno">Apellido paterno*</label>
             <input
               type="text"
               id="apellidoPaterno"
@@ -242,7 +244,7 @@ const UserModal: React.FC<UserModalProps> = ({ mode, user, onSave, onClose }) =>
             />
           </div>
           <div className="form-group">
-            <label htmlFor="apellidoMaterno">Apellido Materno</label>
+            <label htmlFor="apellidoMaterno">Apellido materno</label>
             <input
               type="text"
               id="apellidoMaterno"
@@ -257,7 +259,7 @@ const UserModal: React.FC<UserModalProps> = ({ mode, user, onSave, onClose }) =>
           </div>
             <div className="form-group">
               <label htmlFor="password">Contraseña*</label>
-              <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+              <div style={{ position: 'relative', display: 'flex', alignItems: 'center', width: '100%' }}>
                 <input 
                     type={showPassword ? "text" : "password"} 
                     id="contraseña" 

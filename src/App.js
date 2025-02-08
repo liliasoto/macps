@@ -9,6 +9,8 @@ import CpResp from './components/cpResp.tsx';
 import Record from './components/record.tsx';
 import SeeOrganism from './components/seeOrganism.tsx';
 import ConfigOrganism from './components/configOrganism.tsx';
+import Evidence from './components/evidence.tsx';
+import ConfigProcess from './components/configProcess.tsx';
 
 
 function App() {
@@ -24,7 +26,9 @@ function App() {
           <Route path="/certificaciones/asignar-responsables" element={<CpResp/>}/>
           <Route path="/certificaciones/historial" element={<Record/>}/>
           <Route path="/organismos/ver" element={<SeeOrganism/>}/>
-          <Route path="organismos/configurar" element={<ConfigOrganism/>}/>
+          <Route path="/organismos/configurar" element={<ConfigOrganism/>}/>
+          <Route path="/organismos/evidencias" element={<Evidence/>}/>
+          <Route path="/certificaciones/configurar" element={<ConfigProcess/>}/>
         </Routes>
       </div>
     </Router>

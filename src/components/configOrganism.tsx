@@ -4,7 +4,7 @@ import React from "react"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Bar from "./bar.tsx"
-import EditableSection from "./EditableSection.tsx"
+import EditableSection from "./editableSection.tsx"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import "../styles/configStyles.css"
 

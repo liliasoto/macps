@@ -1,0 +1,113 @@
+.evidence-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    color: #3533cd;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .evidence-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .evidence-table th,
+  .evidence-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .evidence-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .evidence-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .status-cell {
+    text-align: center;
+  }
+  
+  .status-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .status-icon.check {
+    color: #4caf50;
+  }
+  
+  .status-icon.x {
+    color: #f44336;
+  }
+  
+  .actions-cell {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .action-button.show {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .action-button.show:hover {
+    background-color: #2980b9;
+  }
+  
+  .action-button.update {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .action-button.update:hover {
+    background-color: #27ae60;
+  }
+  
+  @media (max-width: 768px) {
+    .evidence-content {
+      padding: 10px;
+    }
+  
+    .evidence-table {
+      font-size: 14px;
+    }
+  
+    .action-button {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+  
+    .action-button span {
+      display: none;
+    }
+  }
+  
+  

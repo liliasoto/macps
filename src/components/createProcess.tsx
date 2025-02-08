@@ -41,7 +41,7 @@ const CreateProcess: React.FC = () => {
       <main className="create-process-content">
         <h1>Crear proceso de certificación</h1>
         <form onSubmit={handleSubmit} className="create-process-form">
-          <div className="form-group">
+          <div className="form-group2">
             <label htmlFor="carrera">Carrera</label>
             <select id="carrera" value={carrera} onChange={(e) => setCarrera(e.target.value)} required>
               <option value="">Seleccione una carrera</option>
@@ -53,7 +53,7 @@ const CreateProcess: React.FC = () => {
             </select>
           </div>
 
-          <div className="form-group">
+          <div className="form-group2">
             <label htmlFor="organismo">Organismo</label>
             <select id="organismo" value={organismo} onChange={(e) => setOrganismo(e.target.value)} required>
               <option value="">Seleccione un organismo certificador</option>
@@ -65,7 +65,7 @@ const CreateProcess: React.FC = () => {
             </select>
           </div>
 
-          <div className="form-group">
+          <div className="form-group2">
             <label htmlFor="periodo">Periodo</label>
             <div className="date-inputs">
               <input

@@ -76,4 +76,3 @@ const EditableSection: React.FC<EditableSectionProps> = ({ items, onSave, onCanc
 }
 
 export default EditableSection
-

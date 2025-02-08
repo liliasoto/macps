@@ -1,0 +1,73 @@
+.config-process-content {
+    padding: 20px;
+    min-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    color: #3533cd;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .config-section {
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .config-section h2 {
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .config-items {
+    padding: 15px;
+  }
+  
+  .config-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
+  
+  .config-item span {
+    flex: 1;
+    margin-right: 10px;
+    min-width: 300px;
+  }
+  
+  .save-button {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .config-process-content {
+      padding: 10px;
+    }
+  
+    .config-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .config-item span {
+      margin-bottom: 10px;
+    }
+  }
+  
+  
