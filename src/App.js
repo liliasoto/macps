@@ -11,6 +11,13 @@ import SeeOrganism from './components/seeOrganism.tsx';
 import ConfigOrganism from './components/configOrganism.tsx';
 import Evidence from './components/evidence.tsx';
 import ConfigProcess from './components/configProcess.tsx';
+import CatOrganisms from './components/catOrganisms.tsx';
+import CatAxles from './components/catAxles.tsx';
+import CatCategories from './components/catCategories.tsx';
+import CatIndicators from './components/catIndicators.tsx';
+import CatStandars from './components/catStandars.tsx';
+import CatCareers from './components/catCareers.tsx';
+import CatDepartments from './components/catDepartments.tsx';
 
 
 function App() {
@@ -29,6 +36,13 @@ function App() {
           <Route path="/organismos/configurar" element={<ConfigOrganism/>}/>
           <Route path="/organismos/evidencias" element={<Evidence/>}/>
           <Route path="/certificaciones/configurar" element={<ConfigProcess/>}/>
+          <Route path="/catalogos/organismos" element={<CatOrganisms/>}/>
+          <Route path="/catalogos/ejes" element={<CatAxles/>}/>
+          <Route path="/catalogos/categorias" element={<CatCategories/>}/>
+          <Route path="/catalogos/indicadores" element={<CatIndicators/>}/>
+          <Route path="/catalogos/estandares" element={<CatStandars/>}/>
+          <Route path="/catalogos/carreras" element={<CatCareers/>}/>
+          <Route path="/catalogos/departamentos" element={<CatDepartments/>}/>
         </Routes>
       </div>
     </Router>
