@@ -1,0 +1,46 @@
+@use '../../colors';
+.photo {
+    $photo-size: 72px;
+
+    display: inline-block;
+    width: $photo-size;
+    height: $photo-size;
+    font-size: .8rem;
+    background-color: colors.$bg-dimmed-10;
+    border: 2px solid colors.$bg-default;
+    border-radius: 4px;
+    box-shadow: 2px 2px 1px #4442;
+    overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: cover;
+    object-position: center;
+    &--tiny {
+        @extend .photo;
+        width: 2rem;
+        height: 2rem;
+    }
+}
+@mixin photo-circle {
+    display: inline-block;
+    border-radius: 9999in;
+    overflow: hidden;
+    height: 4em;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    box-shadow:
+        .07em .07em .1em rgba(black, 0.1),
+        0 0 1em rgba(black, .02);
+}
+.photo-circle {
+    @include photo-circle();
+    @for $size from 1 to 16 {
+        &--#{$size}em {
+            @include photo-circle();
+            height: #{$size}em;
+            width: #{$size}em;
+        }
+    }
+}

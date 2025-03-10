@@ -1,0 +1,30 @@
+@use '../colors';
+
+$active-backcolor: colors.$bg-dimmed-10 !default;
+
+.breadcrumbs {
+    display: block;
+    font-size: .75rem;
+    padding: 0;
+    margin: 0;
+    &-link {
+        display: inline-block;
+        text-decoration: none;
+        padding: .5em 1em;
+        color: inherit;
+        border-radius: .25em;
+        &--active {
+            @extend .breadcrumbs-link;
+            background: $active-backcolor;
+        }
+    }
+    &-item {
+        display: inline-block;
+        &:not(:last-of-type)::after {
+            content: "|";
+        }
+    }
+    &-item:first-of-type &-link {
+        padding-left: 0;
+    }
+}

@@ -1,0 +1,79 @@
+@use '../../layout/variables';
+@use '../colors';
+
+$_backcolor: colors.$bg-dimmed-4 !default;
+
+.menulist {
+    display: flex;
+    font-size: 1rem;
+    margin: 1em 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.menuitem {
+    display: flex;
+    min-height: 5em;
+    flex: 0 0 100%;
+    margin-bottom: .5em;
+    padding: 0 .25em;
+    @media (min-width: map-get($map: variables.$grid-breakpoints, $key: 'lg')) {
+        flex: 0 0 calc(50% - .25em);
+    }
+
+    background: $_backcolor;
+    border: 1px solid #8884;
+    border-radius: .25em;
+    color: inherit;
+    text-decoration: none;
+    z-index: 1;
+
+    box-shadow:
+        .03rem .05rem .125rem #00000020,
+        0 0 1rem #00000004;
+
+    transition:
+        box-shadow .1s ease-in-out,
+        transform .1s ease-in-out;
+    
+    &:hover {
+        z-index: 1000;
+        color: colors.$fg-yellow;
+        transform: scale(101%);
+        box-shadow:
+            .1rem .15rem .2rem #0002,
+            0 0 1rem #00000018;
+        background-color: colors.$bg-default;
+        text-decoration: none;
+        & .menuitem-icon {
+            background: linear-gradient(#0ff, #00f);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            filter: drop-shadow(.12rem .12rem .05rem #0002);
+        }
+    }
+    &:active {
+        z-index: 0;
+        transform: scale(100%);
+        box-shadow:
+            .1rem .15rem .2rem #0003 inset;
+    }
+    &-icon {
+        min-width: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 2em;
+    }
+    &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &-title {
+        font-size: 1.25em;
+    }
+    &-description {
+        font-size: .75em;
+    }
+}

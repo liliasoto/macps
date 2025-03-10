@@ -39,6 +39,7 @@ const ConfigOrganism: React.FC = () => {
     categorias: false,
     indicadores: false,
     estandares: false,
+    questions: false,
   })
   const [selectedEje, setSelectedEje] = useState<string | null>(null)
   const [selectedCategoria, setSelectedCategoria] = useState<string | null>(null)
@@ -82,6 +83,37 @@ const ConfigOrganism: React.FC = () => {
 
     setSelectedOrganism(updatedOrganism)
     alert("Guardado exitoso")
+  }
+
+  const [selectedEjeForQuestion, setSelectedEjeForQuestion] = useState("")
+  const [selectedCategoriaForQuestion, setSelectedCategoriaForQuestion] = useState("")
+  const [selectedIndicadorForQuestion, setSelectedIndicadorForQuestion] = useState("")
+  const [selectedEstandarForQuestion, setSelectedEstandarForQuestion] = useState("")
+  const [questions, setQuestions] = useState([
+    { id: 1, text: "", responseType: "", attachmentRequired: false, validUntil: "", linkedToProcess: false },
+  ])
+
+  const handleAddQuestion = () => {
+    setQuestions([
+      ...questions,
+      {
+        id: questions.length + 1,
+        text: "",
+        responseType: "",
+        attachmentRequired: false,
+        validUntil: "",
+        linkedToProcess: false,
+      },
+    ])
+  }
+
+  const handleQuestionChange = (id, field, value) => {
+    setQuestions(questions.map((q) => (q.id === id ? { ...q, [field]: value } : q)))
+  }
+
+  const handleSaveQuestions = () => {
+    console.log("Preguntas guardadas:", questions)
+    // Aquí iría la lógica para guardar las preguntas en el backend
   }
 
   return (
@@ -206,6 +238,148 @@ const ConfigOrganism: React.FC = () => {
                     />
                   )}
                 </>
+              )}
+            </div>
+            <div className="config-section questions-section">
+              <h2 onClick={() => toggleSection("questions")}>
+                Preguntas
+                {expandedSections.questions ? <ChevronUp /> : <ChevronDown />}
+              </h2>
+              {expandedSections.questions && (
+                <div className="questions-content">
+                  <div className="question-selects">
+                    <select
+                      value={selectedEjeForQuestion}
+                      onChange={(e) => setSelectedEjeForQuestion(e.target.value)}
+                      className="question-select"
+                    >
+                      <option value="">Seleccione un eje</option>
+                      {selectedOrganism?.ejes.map((eje) => (
+                        <option key={eje} value={eje}>
+                          {eje}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      value={selectedCategoriaForQuestion}
+                      onChange={(e) => setSelectedCategoriaForQuestion(e.target.value)}
+                      className="question-select"
+                    >
+                      <option value="">Seleccione una categoría</option>
+                      {selectedOrganism?.categorias[selectedEjeForQuestion]?.map((categoria) => (
+                        <option key={categoria} value={categoria}>
+                          {categoria}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      value={selectedIndicadorForQuestion}
+                      onChange={(e) => setSelectedIndicadorForQuestion(e.target.value)}
+                      className="question-select"
+                    >
+                      <option value="">Seleccione un indicador</option>
+                      {selectedOrganism?.indicadores[selectedCategoriaForQuestion]?.map((indicador) => (
+                        <option key={indicador} value={indicador}>
+                          {indicador}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      value={selectedEstandarForQuestion}
+                      onChange={(e) => setSelectedEstandarForQuestion(e.target.value)}
+                      className="question-select"
+                    >
+                      <option value="">Seleccione un estándar</option>
+                      {selectedOrganism?.estandares[selectedCategoriaForQuestion]?.map((estandar) => (
+                        <option key={estandar} value={estandar}>
+                          {estandar}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  {questions.map((question, index) => (
+                    <div key={question.id} className="question-form">
+                      <div className="question-number">{index + 1}.-</div>
+                      <textarea
+                        value={question.text}
+                        onChange={(e) => handleQuestionChange(question.id, "text", e.target.value)}
+                        placeholder="Escriba la pregunta aquí..."
+                        className="question-textarea"
+                      />
+                      <div className="response-type">
+                        <p>Tipo de respuesta:</p>
+                        <div className="response-options">
+                          {["Opción múltiple", "Texto", "Tabla", "Cargar archivo"].map((type) => (
+                            <label key={type} className="response-option">
+                              <input
+                                type="radio"
+                                name={`responseType-${question.id}`}
+                                value={type}
+                                checked={question.responseType === type}
+                                onChange={(e) => handleQuestionChange(question.id, "responseType", e.target.value)}
+                              />
+                              {type}
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="attachment-option">
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={question.attachmentRequired}
+                            onChange={(e) => handleQuestionChange(question.id, "attachmentRequired", e.target.checked)}
+                          />
+                          Agregar carga de archivos
+                        </label>
+                      </div>
+                      <div className="validity-date">
+                        <label>
+                          Vigencia:
+                          <input
+                            type="date"
+                            value={question.validUntil}
+                            onChange={(e) => handleQuestionChange(question.id, "validUntil", e.target.value)}
+                            min={new Date().toISOString().split("T")[0]}
+                          />
+                        </label>
+                      </div>
+                      <div className="linked-to-process">
+                        <p>Vinculada a proceso:</p>
+                        <label>
+                          <input
+                            type="radio"
+                            name={`linkedToProcess-${question.id}`}
+                            value="true"
+                            checked={question.linkedToProcess}
+                            onChange={(e) =>
+                              handleQuestionChange(question.id, "linkedToProcess", e.target.value === "true")
+                            }
+                          />
+                          Sí
+                        </label>
+                        <label>
+                          <input
+                            type="radio"
+                            name={`linkedToProcess-${question.id}`}
+                            value="false"
+                            checked={!question.linkedToProcess}
+                            onChange={(e) =>
+                              handleQuestionChange(question.id, "linkedToProcess", e.target.value === "true")
+                            }
+                          />
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  ))}
+                  <button onClick={handleAddQuestion} className="btn-secondary">
+                    Agregar otra pregunta
+                  </button>
+                  <button onClick={handleSaveQuestions} className="btn-primary">
+                    Guardar preguntas
+                  </button>
+                </div>
               )}
             </div>
           </>

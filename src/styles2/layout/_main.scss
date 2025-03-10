@@ -1,0 +1,53 @@
+@use './variables';
+
+:root { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+body { margin: 0; }
+
+.container {
+    @each $size, $min-width in variables.$grid-breakpoints {
+        @media (min-width: $min-width) {
+            max-width: map-get(variables.$container-max-widths, $size);
+            @if ($min-width == 0px) {
+                margin-left: 8px;
+                margin-right: 8px;
+            } @else {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+    &--wide {
+        width: 100%;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}
+
+.pos {
+    &-relative {
+        position: relative;
+    }
+    &-fixed {
+        position: fixed;
+    }
+    &-absolute {
+        position: absolute;
+    }
+}
+
+.fill {
+    &-absolute {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+    &-width {
+        width: 100%;
+    }
+    &-height {
+        height: 100%;
+    }
+}

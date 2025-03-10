@@ -1,0 +1,182 @@
+@use '../../controls/button';
+@use '../colors';
+
+.button {
+    &--primary {
+        @include button.button;
+        background-color: colors.$dark-primary;
+        color: colors.$dark-primary-contrast;
+        &:hover,
+        &:focus {
+            background-color: colors.$dark-primary;
+            color: colors.$dark-primary-contrast;
+        }
+    }
+    &--secondary {
+        @include button.button;
+        background-color: colors.$secondary;
+        color: colors.$secondary-contrast;
+    }
+}
+
+%button-color {
+    @include button.button;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    display: inline-flex;
+    border-color: colors.$fg-dimmed-20;
+    color: colors.$fg-dimmed-20;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out, border-color .2s ease-in-out;
+    &:hover {
+        background-color: colors.$bg-default;
+        border-color: colors.$fg-default;
+        color: colors.$fg-default;
+    }
+    &:active {
+        background-color: colors.$fg-default;
+        color: colors.$dark-fg-default;
+    }
+}
+.button {
+    &--default {
+        @extend %button-color;
+    }
+    &--red {
+        @extend %button-color;
+        &:hover {
+            border-color: colors.$fg-red;
+            color: colors.$fg-red;
+        }
+        &:active {
+            background-color: colors.$fg-red;
+            color: colors.$dark-fg-default;
+        }
+    }
+    &--orange {
+        @extend %button-color;
+        &:hover {
+            border-color: colors.$fg-orange;
+            color: colors.$fg-orange;
+        }
+        &:active {
+            background-color: colors.$fg-orange;
+            color: colors.$dark-fg-default;
+        }
+    }
+    &--yellow {
+        @extend %button-color;
+        &:hover {
+            border-color: colors.$dark-fg-yellow;
+            color: colors.$dark-fg-yellow;
+        }
+        &:active {
+            background-color: colors.$dark-fg-yellow;
+            color: colors.$dark-fg-default;
+        }
+    }
+    &--green {
+        @extend %button-color;
+        &:hover {
+            border-color: colors.$fg-green;
+            color: colors.$fg-green;
+        }
+        &:active {
+            background-color: colors.$fg-green;
+            color: colors.$dark-fg-default;
+        }
+    }
+    &--blue {
+        @extend %button-color;
+        &:hover {
+            border-color: colors.$fg-blue;
+            color: colors.$fg-blue;
+        }
+        &:active {
+            background-color: colors.$fg-blue;
+            color: colors.$dark-fg-default;
+        }
+    }
+}
+
+.button-square, %button-square {
+    @include button.button;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    display: inline-flex;
+    height: 1.6em;
+    width: 1.6em;
+    border-radius: .3em;
+    padding: 0;
+    color: colors.$fg-dimmed-20;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out, border-color .2s ease-in-out;
+    &:hover {
+        background-color: white;
+        border-color: colors.$fg-default;
+        color: colors.$fg-default;
+    }
+    &:active {
+        background-color: colors.$fg-default;
+        color: colors.$dark-fg-default;
+    }
+    &--red {
+        @extend %button-square;
+        &:hover {
+            border-color: colors.$fg-red;
+            color: colors.$fg-red;
+        }
+        &:active {
+            background-color: colors.$fg-red;
+            color: colors.$dark-fg-default;
+        }
+    }
+    &--orange {
+        @extend %button-square;
+        &:hover {
+            border-color: colors.$fg-orange;
+            color: colors.$fg-orange;
+        }
+        &:active {
+            background-color: colors.$fg-orange;
+            color: colors.$dark-fg-default;
+        }
+    }
+    &--yellow {
+        @extend %button-square;
+        &:hover {
+            border-color: colors.$dark-fg-yellow;
+            color: colors.$dark-fg-yellow;
+        }
+        &:active {
+            background-color: colors.$dark-fg-yellow;
+            color: colors.$dark-fg-default;
+        }
+    }
+    &--green {
+        @extend %button-square;
+        &:hover {
+            border-color: colors.$fg-green;
+            color: colors.$fg-green;
+        }
+        &:active {
+            background-color: colors.$fg-green;
+            color: colors.$dark-fg-default;
+        }
+    }
+    &--blue {
+        @extend %button-square;
+        &:hover {
+            border-color: colors.$fg-blue;
+            color: colors.$fg-blue;
+        }
+        &:active {
+            background-color: colors.$fg-blue;
+            color: colors.$dark-fg-default;
+        }
+    }
+}

@@ -1,0 +1,120 @@
+@use '../colors';
+$input-bordercolor: colors.$bg-dimmed-20 !default;
+$input-backcolor: colors.$bg-default !default;
+$input-forecolor: colors.$fg-default !default;
+
+$input-bordercolor--focus: colors.$primary;
+$input--focus-shadow:
+    .1rem .1rem .1rem .1rem rgba(0,0,0,0.2) inset,
+    .125rem .125rem .4rem rgba(0,0,0,0.2);
+
+$input-border: .125rem solid $input-bordercolor;
+$input-border-radius: .25rem;
+
+%input-box {
+    border-radius: $input-border-radius;
+    padding: .5rem;
+    width: 100%;
+    color: $input-forecolor;
+    border: $input-border;
+    background-color: $input-backcolor;
+    transition: border-color .2s, box-shadow .2s;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: inherit;
+
+    &:focus {
+        border-color: $input-bordercolor--focus;
+        box-shadow: $input--focus-shadow;
+        outline: none;
+    }
+    &:disabled {
+        background-color: colors.$bg-dimmed-10 !important;
+        color: colors.$fg-dimmed-40 !important;
+    }
+}
+input {
+    &[type=date],
+    &[type=datetime-local],
+    &[type=email],
+    &[type=file],
+    &[type=month],
+    &[type=number],
+    &[type=password],
+    &[type=search],
+    &[type=tel],
+    &[type=text],
+    &[type=time],
+    &[type=url],
+    &[type=week] {
+        @extend %input-box;
+        &:read-only {
+            border-top-width: 0;
+            border-left-width: 0;
+            border-right-width: 0;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+    &[type=number],
+    &[type=time] {
+        text-align: right;
+        text-align: end;
+        &:read-only {
+            border-top-width: 0;
+            border-left-width: 0;
+            border-right-width: 0;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
+textarea {
+    @extend %input-box;
+}
+select {
+    @extend %input-box;
+    border-color: transparent;
+    background-color: colors.$bg-dimmed-10;
+}
+.input {
+    &-box {
+        @extend %input-box;
+        &--dimmed{
+            @extend %input-box;
+            background-color: colors.$bg-dimmed-10;
+        }
+        &--borderless {
+            @extend %input-box;
+            border: none;
+        }
+    }
+    &-group {
+        @extend %input-box;
+        padding: 0;
+        overflow: hidden;
+        &:focus-within {
+            outline: none;
+            border-color: $input-bordercolor--focus;
+            box-shadow: $input--focus-shadow;
+        }
+        & > *:first-child {
+            border-radius: 0 !important;
+            border: 0 !important;
+        }
+        & > *:not(:first-child) {
+            border-radius: 0 !important;
+            border-top: 0 !important;
+            border-right: 0 !important;
+            border-bottom: 0 !important;
+        }
+        & > *:focus + * {
+            border-color: $input-bordercolor--focus;
+        }
+    }
+    &--borderless {
+        border: none !important;
+    }
+}
