@@ -140,6 +140,10 @@ body {
   border-left: 3px solid #3533cd;
 }
 
+.icon-container {
+  position: relative;
+}
+
 .icon-button {
   background: none;
   border: none;
@@ -153,6 +157,7 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  position: relative;
 }
 
 .icon-button:hover {
@@ -172,12 +177,6 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-}
-
-@media (max-width: 768px) {
-  .mobile-menu-button {
-    display: flex;
-  }
 }
 
 /* Menú móvil */

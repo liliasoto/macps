@@ -5,13 +5,19 @@ import { useState, useEffect, useRef } from "react"
 import { Link } from "react-router-dom"
 import logo from "../images/logob.png"
 import { Bell, User, ChevronDown, Menu } from "lucide-react"
+import NotificationsPanel from "./notificationsPanel.tsx"
+import UserMenu from "./userMenu.tsx"
 import "../styles/mainStyles.css"
 
 const Bar: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
+  const [notificationsPanelOpen, setNotificationsPanelOpen] = useState(false)
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const notificationsRef = useRef<HTMLDivElement>(null)
+  const userMenuRef = useRef<HTMLDivElement>(null)
 
   const handleDropdown = (menu: string) => {
     setActiveDropdown(activeDropdown === menu ? null : menu)
@@ -19,6 +25,16 @@ const Bar: React.FC = () => {
 
   const handleMobileSubmenu = (menu: string) => {
     setMobileSubmenuOpen(mobileSubmenuOpen === menu ? null : menu)
+  }
+
+  const toggleNotificationsPanel = () => {
+    setNotificationsPanelOpen(!notificationsPanelOpen)
+    if (userMenuOpen) setUserMenuOpen(false)
+  }
+
+  const toggleUserMenu = () => {
+    setUserMenuOpen(!userMenuOpen)
+    if (notificationsPanelOpen) setNotificationsPanelOpen(false)
   }
 
   // Cerrar el menú desplegable al hacer clic fuera de él
@@ -134,12 +150,18 @@ const Bar: React.FC = () => {
             </div>
           </div>
           <div className="nav-right">
-            <button className="icon-button">
-              <Bell size={24} />
-            </button>
-            <button className="icon-button">
-              <User size={24} />
-            </button>
+            <div className="icon-container" ref={notificationsRef}>
+              <button className="icon-button" onClick={toggleNotificationsPanel}>
+                <Bell size={24} />
+              </button>
+              <NotificationsPanel isOpen={notificationsPanelOpen} onClose={() => setNotificationsPanelOpen(false)} />
+            </div>
+            <div className="icon-container" ref={userMenuRef}>
+              <button className="icon-button" onClick={toggleUserMenu}>
+                <User size={24} />
+              </button>
+              <UserMenu isOpen={userMenuOpen} onClose={() => setUserMenuOpen(false)} />
+            </div>
             <button className="mobile-menu-button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               <Menu size={24} />
             </button>
