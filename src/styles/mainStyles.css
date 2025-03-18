@@ -1,9 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
 /* Estilos generales */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #fafafa;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .main-container {
@@ -63,16 +78,17 @@ body {
   border: none;
   cursor: pointer;
   color: #333;
-  font-weight: bold;
+  font-weight: 500;
   display: flex;
   align-items: center;
   gap: 5px;
   padding: 8px 16px;
   transition: all 0.3s ease;
-  font-size: 16px;
-  border-radius: 4px;
+  font-size: 15px;
+  border-radius: 8px;
   position: relative;
   z-index: 2;
+  font-family: "Poppins", sans-serif;
 }
 
 .dropdown-toggle:hover {
@@ -101,7 +117,7 @@ body {
   top: 100%;
   left: 0;
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   z-index: 1;
@@ -132,6 +148,8 @@ body {
   padding: 12px 16px;
   transition: all 0.2s ease;
   border-left: 3px solid transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
 }
 
 .dropdown-menu p a:hover {
@@ -260,6 +278,7 @@ body {
   border-bottom: 1px solid #e0e0e0;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .mobile-menu-item:hover {
@@ -267,7 +286,7 @@ body {
 }
 
 .mobile-menu-item span {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .mobile-menu-item .rotate {
@@ -300,6 +319,8 @@ body {
   border-bottom: 1px solid #e0e0e0;
   transition: all 0.2s ease;
   border-left: 3px solid transparent;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
 }
 
 .mobile-submenu li a:hover {
@@ -349,11 +370,12 @@ body {
 }
 
 .hero-section h1 {
-  font-size: 60px;
+  font-size: 58px;
   color: #3533cd;
   margin: 0;
   line-height: 1.2;
   text-align: left;
+  font-weight: 700;
 }
 
 .hero-section h2 {
@@ -374,16 +396,19 @@ body {
   background-color: #3533cd;
   color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 18px;
-  font-weight: bold;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
 }
 
 .cta-button:hover {
   background-color: #2826a0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
 }
 
 .main-content::before {
@@ -419,6 +444,11 @@ body {
   .hero-text {
     padding-right: 0;
     margin-top: 40px;
+  }
+
+  .hero-section h1 {
+    font-size: 42px;
+    text-align: center;
   }
 
   .hero-image {

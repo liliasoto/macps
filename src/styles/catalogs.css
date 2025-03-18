@@ -1,74 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+
 .catalog-container {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.catalog-title {
+  color: #3533cd;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+}
+
+.catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.catalog-table th,
+.catalog-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.catalog-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+  font-family: "Nunito", sans-serif;
+}
+
+.catalog-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.catalog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.catalog-button {
+  padding: 10px 20px;
+  background-color: #3533cd;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+}
+
+.catalog-button:hover {
+  background-color: #2826a0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
+}
+
+@media (max-width: 768px) {
+  .catalog-container {
+    padding: 10px;
   }
-  
-  .catalog-title {
-    color: #3533cd;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
+
   .catalog-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
   }
-  
+
   .catalog-table th,
   .catalog-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #e0e0e0;
+    padding: 8px;
   }
-  
-  .catalog-table th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .catalog-table tr:hover {
-    background-color: #f9f9f9;
-  }
-  
-  .catalog-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-  }
-  
-  .catalog-button {
-    padding: 10px 20px;
-    background-color: #3533cd;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  .catalog-button:hover {
-    background-color: #2826a0;
-  }
-  
-  @media (max-width: 768px) {
-    .catalog-container {
-      padding: 10px;
-    }
-  
-    .catalog-table {
-      font-size: 14px;
-    }
-  
-    .catalog-table th,
-    .catalog-table td {
-      padding: 8px;
-    }
-  }
-  
-  
+}
+

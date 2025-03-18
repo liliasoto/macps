@@ -56,12 +56,28 @@
     margin-bottom: 20px;
   }
   
-  .btn-primary,
-  .btn-secondary,
-  .btn-add {
+  .org-actions .btn-primary{
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  .org-actions .btn-secondary{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  .btn-add {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
@@ -86,14 +102,16 @@
   }
   
   .btn-add {
-    background-color: #4caf50;
+    background-color: #3533cd;
     color: white;
     display: block;
     margin: 0 auto;
   }
   
   .btn-add:hover {
-    background-color: #45a049;
+    background-color: #2826a0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
   }
   
   button:disabled {

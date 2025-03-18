@@ -17,7 +17,6 @@ const Main: React.FC = () => {
               Simplificamos la gestión, organización y seguimiento de todos los requisitos necesarios para la
               certificación de programas universitarios, asegurando un proceso fluido y exitoso para tu institución.
             </p>
-            <button className="cta-button">Comienza ahora</button>
           </div>
           <div className="hero-image">
             <img src={logo || "/placeholder.svg"} alt="MACPS Logo" className="hero-logo" />

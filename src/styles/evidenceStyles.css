@@ -83,12 +83,12 @@
   }
   
   .action-button.update {
-    background-color: #2ecc71;
+    background-color: #2dc42a;
     color: white;
   }
   
   .action-button.update:hover {
-    background-color: #27ae60;
+    background-color: #27ae4b;
   }
   
   @media (max-width: 768px) {

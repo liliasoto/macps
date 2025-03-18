@@ -2,6 +2,7 @@
 
 import React from "react"
 import { useRef, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { User, Settings, LogOut, UserCircle } from "lucide-react"
 import "../styles/dropdownPanels.css"
 
@@ -38,11 +39,23 @@ const UserMenu: React.FC<UserMenuProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen, onClose])
 
+  // Obtener la función de navegación
+  const navigate = useNavigate()
+
   // Manejar el cierre de sesión
   const handleLogout = () => {
-    // Aquí iría la lógica para cerrar sesión
-    console.log("Cerrando sesión...")
-    // Redirigir al login o realizar otras acciones necesarias
+    // Aquí iría la lógica para limpiar el estado de autenticación
+    // Por ejemplo, eliminar tokens del localStorage
+    localStorage.removeItem("authToken")
+    localStorage.removeItem("userData")
+
+    // Cerrar el menú de usuario
+    onClose()
+
+    // Redirigir al usuario a la página principal
+    navigate("/")
+
+    console.log("Sesión cerrada correctamente")
   }
 
   return (
