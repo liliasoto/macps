@@ -1,0 +1,129 @@
+.theme-toggle-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 56px;
+  height: 28px;
+  position: relative;
+}
+
+.toggle-track {
+  width: 56px;
+  height: 28px;
+  background-color: #3533cd;
+  border-radius: 30px;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(53, 51, 205, 0.3);
+  overflow: hidden;
+}
+
+.dark .toggle-track {
+  background-color: #4a4aff;
+}
+
+.toggle-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.sun-icon {
+  color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.moon-icon {
+  color: #fff;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.dark .sun-icon {
+  opacity: 0.5;
+}
+
+.dark .moon-icon {
+  opacity: 1;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.toggle-thumb.dark {
+  transform: translateX(28px);
+}
+
+/* Hover effect */
+.toggle-track:hover {
+  box-shadow: 0 2px 15px rgba(53, 51, 205, 0.4);
+}
+
+.dark .toggle-track:hover {
+  box-shadow: 0 2px 15px rgba(74, 74, 255, 0.4);
+}
+
+/* Focus styles for accessibility */
+.theme-toggle:focus-visible {
+  outline: 2px solid #3533cd;
+  outline-offset: 2px;
+}
+
+.dark .theme-toggle:focus-visible {
+  outline-color: #4a4aff;
+}
+
+@media (max-width: 768px) {
+  .theme-toggle-container {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .toggle-track {
+    width: 48px;
+    height: 24px;
+  }
+
+  .toggle-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  .toggle-thumb.dark {
+    transform: translateX(24px);
+  }
+
+  .toggle-icons {
+    padding: 0 6px;
+  }
+
+  .sun-icon,
+  .moon-icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+

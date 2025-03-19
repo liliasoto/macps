@@ -4,10 +4,9 @@ import "../styles/mainStyles.css"
 import Bar from "./bar.tsx"
 
 const Main: React.FC = () => {
-
   return (
     <div className="main-container">
-      <Bar></Bar>
+      <Bar />
       <main className="main-content">
         <div className="hero-section">
           <div className="hero-text">

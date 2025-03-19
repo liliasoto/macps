@@ -1,34 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+
 .config-process-content {
   padding: 20px;
   min-width: 1000px;
   margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 h1 {
-  color: #3533cd;
+  color: var(--accent-primary);
   margin-bottom: 20px;
   text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  transition: color 0.3s ease;
+}
+
+.process-select,
+.department-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--input-background);
+  color: var(--text-primary);
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .config-section {
   margin-top: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
   overflow: hidden;
+  transition: border-color 0.3s ease;
 }
 
 .config-section h2 {
-  background-color: #f5f5f5;
-  padding: 10px;
+  background-color: var(--background-tertiary);
+  padding: 15px;
   margin: 0;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: var(--text-primary);
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .config-items {
   padding: 15px;
+  background-color: var(--background-secondary);
+  transition: background-color 0.3s ease;
 }
 
 .config-item {
@@ -36,15 +67,18 @@ h1 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 4px;
+  padding: 15px;
+  background-color: var(--background-tertiary);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .config-item span {
   flex: 1;
   margin-right: 10px;
   min-width: 300px;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .save-button {
@@ -53,11 +87,33 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
+}
+
+.dark .save-button:hover {
+  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.3);
 }
 
 @media (max-width: 768px) {
   .config-process-content {
     padding: 10px;
+    min-width: auto;
   }
 
   .config-item {
@@ -67,6 +123,7 @@ h1 {
 
   .config-item span {
     margin-bottom: 10px;
+    min-width: auto;
   }
 }
 
