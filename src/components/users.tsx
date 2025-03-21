@@ -1,8 +1,10 @@
+"use client"
+
 import React from "react"
 import { useState, useEffect } from "react"
 import Bar from "./bar.tsx"
 import "../styles/userStyles.css"
-import { Eye, EyeOff } from 'lucide-react';
+import { X } from "lucide-react"
 
 const departamentos = [
   "Sistemas y computación",
@@ -21,7 +23,6 @@ const usuariosIniciales = [
     apellidoPaterno: "Soto",
     apellidoMaterno: "Llamas",
     usuario: "liliasoll",
-    contraseña: "123",
     rol: "Administrador",
     departamento: "Sistemas y computación",
   },
@@ -31,7 +32,6 @@ const usuariosIniciales = [
     apellidoPaterno: "Pérez",
     apellidoMaterno: "García",
     usuario: "juanpg",
-    contraseña: "123",
     rol: "Profesor",
     departamento: "Arquitectura",
   },
@@ -41,7 +41,6 @@ const usuariosIniciales = [
     apellidoPaterno: "López",
     apellidoMaterno: "Hernández",
     usuario: "marialh",
-    contraseña: "123",
     rol: "Coordinador",
     departamento: "Ciencias básicas",
   },
@@ -51,7 +50,6 @@ const usuariosIniciales = [
     apellidoPaterno: "Ramírez",
     apellidoMaterno: "Sánchez",
     usuario: "carlosrs",
-    contraseña: "123",
     rol: "Profesor",
     departamento: "Sistemas y computación",
   },
@@ -61,7 +59,6 @@ const usuariosIniciales = [
     apellidoPaterno: "Martínez",
     apellidoMaterno: "Rodríguez",
     usuario: "anamr",
-    contraseña: "123",
     rol: "Administrador",
     departamento: "Ingeniería industrial",
   },
@@ -73,7 +70,6 @@ interface Usuario {
   apellidoPaterno: string
   apellidoMaterno: string
   usuario: string
-  contraseña: string
   rol: string
   departamento: string
 }
@@ -121,12 +117,11 @@ const Users: React.FC = () => {
     setShowModal(false)
   }
 
-
   return (
     <div className="main-container">
       <Bar />
-      <main className="users-main-content">
-        <h1>Gestión de usuarios</h1>
+      <div className="catalog-container">
+        <h1 className="catalog-title">Gestión de Usuarios</h1>
         <div className="users-controls">
           <select
             name="Departamentos"
@@ -142,8 +137,13 @@ const Users: React.FC = () => {
             ))}
           </select>
         </div>
+        <div className="catalog-actions">
+          <button className="catalog-button" onClick={handleAddUser}>
+            Agregar Usuario
+          </button>
+        </div>
         <div className="users-table-container">
-          <table className="users-table">
+          <table className="catalog-table">
             <thead>
               <tr>
                 <th>ID</th>
@@ -164,25 +164,20 @@ const Users: React.FC = () => {
                   <td>{usuario.usuario}</td>
                   <td>{usuario.rol}</td>
                   <td>{usuario.departamento}</td>
-                  <td>
-                    <div className="actions-cell">
-                      <button className="action-button edit" onClick={() => handleEditUser(usuario)}>
-                        Editar
-                      </button>
-                      <button className="action-button delete" onClick={() => handleDeleteUser(usuario.id)}>
-                        Eliminar
-                      </button>
-                    </div>
+                  <td className="actions-cell">
+                    <button className="action-button edit" onClick={() => handleEditUser(usuario)}>
+                      Editar
+                    </button>
+                    <button className="action-button delete" onClick={() => handleDeleteUser(usuario.id)}>
+                      Eliminar
+                    </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <button className="new-user-button" onClick={handleAddUser}>
-          Nuevo usuario
-        </button>
-      </main>
+      </div>
       {showModal && (
         <UserModal mode={modalMode} user={currentUser} onSave={handleSaveUser} onClose={() => setShowModal(false)} />
       )}
@@ -205,7 +200,6 @@ const UserModal: React.FC<UserModalProps> = ({ mode, user, onSave, onClose }) =>
       apellidoPaterno: "",
       apellidoMaterno: "",
       usuario: "",
-      contraseña: "",
       rol: "",
       departamento: "",
     },
@@ -221,103 +215,109 @@ const UserModal: React.FC<UserModalProps> = ({ mode, user, onSave, onClose }) =>
     onSave(formData)
   }
 
-  const [showPassword, setShowPassword] = useState(false);
-
   return (
     <div className="modal-overlay">
-      <div className="modal">
-        <h2>{mode === "add" ? "Nuevo usuario" : "Editar usuario"}</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="nombre">Nombre*</label>
-            <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="apellidoPaterno">Apellido paterno*</label>
-            <input
-              type="text"
-              id="apellidoPaterno"
-              name="apellidoPaterno"
-              value={formData.apellidoPaterno}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="apellidoMaterno">Apellido materno</label>
-            <input
-              type="text"
-              id="apellidoMaterno"
-              name="apellidoMaterno"
-              value={formData.apellidoMaterno}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="usuario">Usuario*</label>
-            <input type="text" id="usuario" name="usuario" value={formData.usuario} onChange={handleChange} required />
-          </div>
+      <div className="modal-container">
+        <div className="modal-header">
+          <h2>{mode === "add" ? "Nuevo Usuario" : "Editar Usuario"}</h2>
+          <button className="modal-close-button" onClick={onClose}>
+            <X size={20} />
+          </button>
+        </div>
+        <div className="modal-content">
+          <form className="modal-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="password">Contraseña*</label>
-              <div style={{ position: 'relative', display: 'flex', alignItems: 'center', width: '100%' }}>
-                <input 
-                    type={showPassword ? "text" : "password"} 
-                    id="contraseña" 
-                    name="contraseña" 
-                    value={formData.contraseña}
-                    onChange={handleChange} 
-                    required
-                    style={{ paddingRight: '35px' }} // Espacio para el ícono
-                />
-                <span 
-                    onClick={() => setShowPassword(!showPassword)} 
-                    style={{
-                    position: 'absolute',
-                    right: '10px',
-                    cursor: 'pointer'
-                    }}
-                >
-                    {showPassword ? <Eye size={20} /> : <EyeOff size={20} />}
-                </span>
-              </div>
+              <label htmlFor="nombre" className="required">
+                Nombre
+              </label>
+              <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} required />
             </div>
-          <div className="form-group">
-            <label htmlFor="departamento">Departamento*</label>
-            <select
-              id="departamento"
-              name="departamento"
-              value={formData.departamento}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Seleccione un departamento</option>
-              {departamentos.map((depto, index) => (
-                <option key={index} value={depto}>
-                  {depto}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="rol">Rol*</label>
-            <select id="rol" name="rol" value={formData.rol} onChange={handleChange} required>
-              <option value="">Seleccione un rol</option>
-              {roles.map((rol, index) => (
-                <option key={index} value={rol}>
-                  {rol}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="form-actions">
-            <button type="submit" className="save-button">
-              Guardar
-            </button>
-            <button type="button" className="cancel-button" onClick={onClose}>
-              Cancelar
-            </button>
-          </div>
-        </form>
+            <div className="form-group">
+              <label htmlFor="apellidoPaterno" className="required">
+                Apellido Paterno
+              </label>
+              <input
+                type="text"
+                id="apellidoPaterno"
+                name="apellidoPaterno"
+                value={formData.apellidoPaterno}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="apellidoMaterno">Apellido Materno</label>
+              <input
+                type="text"
+                id="apellidoMaterno"
+                name="apellidoMaterno"
+                value={formData.apellidoMaterno}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="usuario" className="required">
+                Usuario
+              </label>
+              <input
+                type="text"
+                id="usuario"
+                name="usuario"
+                value={formData.usuario}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            {mode === "add" && (
+              <div className="form-group">
+                <label htmlFor="password" className="required">
+                  Contraseña
+                </label>
+                <input type="password" id="password" name="password" onChange={handleChange} required />
+              </div>
+            )}
+            <div className="form-group">
+              <label htmlFor="departamento" className="required">
+                Departamento
+              </label>
+              <select
+                id="departamento"
+                name="departamento"
+                value={formData.departamento}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Seleccione un departamento</option>
+                {departamentos.map((depto, index) => (
+                  <option key={index} value={depto}>
+                    {depto}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="rol" className="required">
+                Rol
+              </label>
+              <select id="rol" name="rol" value={formData.rol} onChange={handleChange} required>
+                <option value="">Seleccione un rol</option>
+                {roles.map((rol, index) => (
+                  <option key={index} value={rol}>
+                    {rol}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-actions">
+              <button type="button" className="btn-secondary" onClick={onClose}>
+                Cancelar
+              </button>
+              <button type="submit" className="btn-primary">
+                Guardar
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   )
