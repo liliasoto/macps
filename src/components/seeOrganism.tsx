@@ -1,9 +1,9 @@
 "use client"
 
-import  React from "react"
+import React from "react"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import Bar from "./bar.tsx"
+import OrganismModal from "./modals/OrganismModal.tsx"
 import "../styles/seeOrgStyles.css"
 
 // Datos de ejemplo
@@ -22,7 +22,10 @@ const organismosIniciales = [
 const SeeOrganism: React.FC = () => {
   const [organismos, setOrganismos] = useState(organismosIniciales)
   const [selectedOrganism, setSelectedOrganism] = useState<number | null>(null)
-  const navigate = useNavigate()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [currentOrganism, setCurrentOrganism] = useState<{ id: number; nombre: string; descripcion: string } | null>(
+    null,
+  )
 
   const handleSelectOrganism = (id: number) => {
     setSelectedOrganism(id === selectedOrganism ? null : id)
@@ -30,7 +33,11 @@ const SeeOrganism: React.FC = () => {
 
   const handleModificar = () => {
     if (selectedOrganism) {
-      navigate(`/organismos/configurar/${selectedOrganism}`)
+      const organism = organismos.find((org) => org.id === selectedOrganism)
+      if (organism) {
+        setCurrentOrganism(organism)
+        setIsModalOpen(true)
+      }
     }
   }
 
@@ -42,14 +49,30 @@ const SeeOrganism: React.FC = () => {
   }
 
   const handleAgregarNuevo = () => {
-    navigate("/organismos/agregar")
+    setCurrentOrganism(null)
+    setIsModalOpen(true)
+  }
+
+  const handleSaveOrganism = (organismData: { nombre: string; descripcion: string }) => {
+    if (currentOrganism) {
+      // Editar organismo existente
+      setOrganismos(organismos.map((org) => (org.id === currentOrganism.id ? { ...org, ...organismData } : org)))
+    } else {
+      // Agregar nuevo organismo
+      const newOrganism = {
+        id: organismos.length > 0 ? Math.max(...organismos.map((org) => org.id)) + 1 : 1,
+        ...organismData,
+      }
+      setOrganismos([...organismos, newOrganism])
+    }
+    setIsModalOpen(false)
   }
 
   return (
     <div className="main-container">
       <Bar />
       <main className="see-org-content">
-        <h1>Organismos certificadores</h1>
+        <h1>Organismos Certificadores</h1>
         <div className="org-table-container">
           <table className="org-table">
             <thead>
@@ -84,6 +107,13 @@ const SeeOrganism: React.FC = () => {
           Agregar nuevo organismo
         </button>
       </main>
+
+      <OrganismModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={handleSaveOrganism}
+        initialData={currentOrganism || undefined}
+      />
     </div>
   )
 }
