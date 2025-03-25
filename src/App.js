@@ -19,6 +19,8 @@ import CatIndicators from './components/catIndicators.tsx';
 import CatStandars from './components/catStandars.tsx';
 import CatCareers from './components/catCareers.tsx';
 import CatDepartments from './components/catDepartments.tsx';
+import Profile from './components/profile.tsx';
+import Settings from './components/settings.tsx';
 
 
 function App() {
@@ -45,6 +47,8 @@ function App() {
             <Route path="/catalogos/estandares" element={<CatStandars/>}/>
             <Route path="/catalogos/carreras" element={<CatCareers/>}/>
             <Route path="/catalogos/departamentos" element={<CatDepartments/>}/>
+            <Route path="/perfil" element={<Profile/>}/>
+            <Route path="/configuracion" element={<Settings/>}/>
           </Routes>
         </div>
       </Layout>

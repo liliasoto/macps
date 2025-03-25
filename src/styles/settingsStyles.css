@@ -1,0 +1,328 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+
+.settings-content {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.settings-content h1 {
+  color: var(--accent-primary);
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  transition: color 0.3s ease;
+}
+
+.settings-container {
+  display: flex;
+  gap: 20px;
+  background-color: var(--background-secondary);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  overflow: hidden;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings-sidebar {
+  width: 250px;
+  background-color: var(--background-tertiary);
+  padding: 20px 0;
+  transition: background-color 0.3s ease;
+}
+
+.settings-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  text-align: left;
+  color: var(--text-primary);
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.settings-tab:hover {
+  background-color: rgba(53, 51, 205, 0.05);
+  color: var(--accent-primary);
+}
+
+.dark .settings-tab:hover {
+  background-color: rgba(74, 74, 255, 0.1);
+}
+
+.settings-tab.active {
+  background-color: rgba(53, 51, 205, 0.1);
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+
+.dark .settings-tab.active {
+  background-color: rgba(74, 74, 255, 0.15);
+}
+
+.settings-tab svg {
+  color: var(--text-tertiary);
+  transition: color 0.3s ease;
+}
+
+.settings-tab.active svg,
+.settings-tab:hover svg {
+  color: var(--accent-primary);
+}
+
+.settings-panel {
+  flex: 1;
+  padding: 20px;
+}
+
+.settings-section {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-section h2 {
+  margin: 0 0 20px 0;
+  color: var(--accent-primary);
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.settings-section h3 {
+  margin: 20px 0 10px 0;
+  color: var(--text-primary);
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: var(--input-background);
+  color: var(--text-primary);
+  font-family: "Poppins", sans-serif;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(53, 51, 205, 0.1);
+}
+
+.dark .form-group input:focus {
+  box-shadow: 0 0 0 2px rgba(74, 74, 255, 0.15);
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+  color: var(--text-primary);
+}
+
+.checkbox-group {
+  margin-bottom: 5px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-primary);
+}
+
+.settings-save-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.settings-save-button:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
+}
+
+.dark .settings-save-button:hover {
+  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.3);
+}
+
+.settings-info {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: var(--background-tertiary);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.settings-info p {
+  margin: 5px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.theme-selector {
+  margin-top: 10px;
+}
+
+.theme-options {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.theme-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--background-tertiary);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-option:hover {
+  transform: translateY(-2px);
+}
+
+.theme-option.active {
+  border-color: var(--accent-primary);
+}
+
+.theme-option svg {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.theme-option span {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.theme-description {
+  margin-top: 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .settings-container {
+    flex-direction: column;
+  }
+
+  .settings-sidebar {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .settings-tab {
+    padding: 10px 15px;
+  }
+
+  .settings-panel {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-content {
+    padding: 10px;
+  }
+
+  .theme-options {
+    flex-direction: column;
+  }
+}
+
