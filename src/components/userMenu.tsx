@@ -2,17 +2,10 @@
 
 import React from "react"
 import { useRef, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { User, Settings, LogOut, UserCircle } from "lucide-react"
+import { useAuth } from "../context/authContext.tsx"
 import "../styles/dropdownPanels.css"
-
-// Datos de ejemplo para el usuario
-const sampleUser = {
-  name: "Lilia Soto",
-  email: "liliasoll@example.com",
-  role: "Administrador",
-  avatar: null, // URL de la imagen de avatar, null para usar el icono por defecto
-}
 
 interface UserMenuProps {
   isOpen: boolean
@@ -21,6 +14,7 @@ interface UserMenuProps {
 
 const UserMenu: React.FC<UserMenuProps> = ({ isOpen, onClose }) => {
   const menuRef = useRef<HTMLDivElement>(null)
+  const { user, logout } = useAuth()
 
   // Cerrar el menú al hacer clic fuera
   useEffect(() => {
@@ -39,51 +33,36 @@ const UserMenu: React.FC<UserMenuProps> = ({ isOpen, onClose }) => {
     }
   }, [isOpen, onClose])
 
-  // Obtener la función de navegación
-  const navigate = useNavigate()
-
   // Manejar el cierre de sesión
   const handleLogout = () => {
-    // Aquí iría la lógica para limpiar el estado de autenticación
-    // Por ejemplo, eliminar tokens del localStorage
-    localStorage.removeItem("authToken")
-    localStorage.removeItem("userData")
-
-    // Cerrar el menú de usuario
+    logout()
     onClose()
-
-    // Redirigir al usuario a la página principal
-    navigate("/")
-
-    console.log("Sesión cerrada correctamente")
   }
 
   return (
     <div ref={menuRef} className={`dropdown-panel user-menu ${isOpen ? "active" : ""}`}>
       <div className="user-header">
         <div className="user-avatar">
-          {sampleUser.avatar ? (
-            <img src={sampleUser.avatar || "/placeholder.svg"} alt={sampleUser.name} />
-          ) : (
-            <UserCircle size={48} />
-          )}
+          {user?.avatar ? <img src={user.avatar || "/placeholder.svg"} alt={user.nombre} /> : <UserCircle size={48} />}
         </div>
         <div className="user-info">
-          <h3>{sampleUser.name}</h3>
-          <p>{sampleUser.role}</p>
-          <span>{sampleUser.email}</span>
+          <h3>
+            {user?.nombre} {user?.apellidoPaterno}
+          </h3>
+          <p>{user?.rol}</p>
+          <span>{user?.email}</span>
         </div>
       </div>
 
       <div className="menu-items">
-        <a href="/perfil" className="menu-item">
+        <Link to="/perfil" className="menu-item" onClick={onClose}>
           <User size={18} />
           <span>Mi Perfil</span>
-        </a>
-        <a href="/configuracion" className="menu-item">
+        </Link>
+        <Link to="/configuracion" className="menu-item" onClick={onClose}>
           <Settings size={18} />
           <span>Configuración</span>
-        </a>
+        </Link>
         <button onClick={handleLogout} className="menu-item logout">
           <LogOut size={18} />
           <span>Cerrar Sesión</span>

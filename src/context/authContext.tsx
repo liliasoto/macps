@@ -14,6 +14,7 @@ export interface User {
   email: string
   rol: string
   departamento: string
+  avatar?: string | null 
 }
 
 // Definir el tipo para el contexto de autenticación
@@ -39,6 +40,7 @@ const USERS = [
     rol: "Administrador",
     departamento: "Sistemas y computación",
     password: "123", // En un sistema real, esto sería un hash
+    avatar: null,
   },
   {
     id: 2,
@@ -50,6 +52,7 @@ const USERS = [
     rol: "Coordinador",
     departamento: "Sistemas y computación",
     password: "123456",
+    avatar: null,
   },
 ]
 

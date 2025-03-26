@@ -2,11 +2,12 @@
 
 import React from "react"
 import { useState, useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
-import logo from "../images/logob.png"
+import { Link, useNavigate } from "react-router-dom"
+import logo from "../images/logomacpspng.png"
 import { Bell, User, ChevronDown, Menu } from "lucide-react"
 import NotificationsPanel from "./notificationsPanel.tsx"
 import UserMenu from "./userMenu.tsx"
+import { useAuth } from "../context/authContext.tsx"
 import "../styles/mainStyles.css"
 
 const Bar: React.FC = () => {
@@ -18,6 +19,15 @@ const Bar: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null)
   const notificationsRef = useRef<HTMLDivElement>(null)
   const userMenuRef = useRef<HTMLDivElement>(null)
+  const { isAuthenticated } = useAuth()
+  const navigate = useNavigate()
+
+  // Redirigir al login si no está autenticado
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/")
+    }
+  }, [isAuthenticated, navigate])
 
   const handleDropdown = (menu: string) => {
     setActiveDropdown(activeDropdown === menu ? null : menu)

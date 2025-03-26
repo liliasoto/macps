@@ -1,143 +1,184 @@
 /* Estilos generales */
 body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    background-color: #fafafa;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s ease;
-  }
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: #fafafa;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease;
+}
 
-  .dark body {
-    background-color: #121212;
+.dark body {
+  background-color: #121212;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+
+/* Contenedor principal centrado */
+.contenedorprin {
+  padding: 40px;
+  text-align: center;
+  width: 300px;
+  margin-top: 15%;
+  background-color: var(--background);
+  transition: background-color 0.3s ease;
+}
+
+/* Contenedor del logo y título */
+.contenedorlogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 20px;
+}
+
+.contenedorlogo img {
+  width: 60%;
+  height: auto;
+  margin-right: 10px;
+}
+
+.contenedorlogo h1 {
+  font-family: "Nunito", sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--accent-primary);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.dark .contenedorlogo h1 {
+  color: #f5f5f5;
+}
+
+/* Estilos de credenciales */
+.credenciales {
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--background-secondary);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.credenciales input {
+  width: 80%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #a2a2a2;
+  outline: none;
+  background: transparent;
+  outline: none;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 3%;
+  color: var(--text-primary);
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark .credenciales input {
+  border-bottom: 2px solid #666666;
+  color: #f5f5f5;
+}
+
+.dark .credenciales input::placeholder {
+  color: #aaaaaa;
+}
+
+.credenciales input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+.credenciales button {
+  width: 100%;
+  padding: 10px;
+  width: 90%;
+  border: none;
+  background-color: var(--accent-primary);
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.credenciales button:hover:not(:disabled) {
+  background-color: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+.credenciales button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.credenciales p {
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.dark .credenciales p {
+  color: #aaaaaa;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 90%;
+  font-size: 14px;
+  text-align: left;
+}
+
+.dark .error-message {
+  background-color: rgba(244, 67, 54, 0.2);
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-  
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-  @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
-  
-  /* Contenedor principal centrado */
-  .contenedorprin {
-    padding: 40px;
-    text-align: center;
-    width: 300px;
-    margin-top: 15%;
-    background-color: var(--background);
-    transition: background-color 0.3s ease;
+  to {
+    transform: rotate(360deg);
   }
-  
-  /* Contenedor del logo y título */
-  .contenedorlogo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: left;
-    margin-bottom: 20px;
-  }
-  
+}
+
+@media (max-width: 768px) {
   .contenedorlogo img {
-    width: 60%;
-    height: auto;
-    margin-right: 10px;
+    width: 120px;
   }
-  
+
   .contenedorlogo h1 {
-    font-family: "Nunito", sans-serif;
-    font-size: 48px;
-    font-weight: 800;
-    color: var(--accent-primary);
-    margin: 0;
-    transition: color 0.3s ease;
+    font-size: 36px;
   }
 
-  .dark .contenedorlogo h1 {
-    color: #f5f5f5;
-  }
-  
-  /* Estilos de credenciales */
   .credenciales {
+    max-width: 90%;
     padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    background-color: var(--background-secondary);
-    box-shadow: 0 4px 15px var(--shadow-color);
   }
-  
-  .credenciales input {
-    width: 80%;
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid #a2a2a2;
-    outline: none;
-    background: transparent;
-    outline: none;
-    text-align: center;
-    font-size: 16px;
-    margin-bottom: 3%;
-    color: var(--text-primary);
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
 
-  }
-
-  .dark .credenciales input {
-    border-bottom: 2px solid #666666;
-    color: #f5f5f5;
-  }
-
-  .dark .credenciales input::placeholder {
-    color: #aaaaaa;
-  }
-
-  .credenciales input:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-  }
-  
-  .credenciales button {
-    width: 100%;
-    padding: 10px;
-    width: 90%;
-    border: none;
-    background-color: var(--accent-primary);
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .credenciales button:hover {
-    background-color: var(--accent-secondary);
-    transform: translateY(-2px);
-  }
-  .credenciales p {
-    font-size: 12px;
-    color: #666;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-
-  .dark .credenciales p {
-    color: #aaaaaa;
-  }
-  
-  @media (max-width: 768px) {
-    .contenedorlogo img {
-      width: 120px;
-    }
-  
-    .contenedorlogo h1 {
-      font-size: 36px;
-    }
-  
-    .credenciales {
-      max-width: 90%;
-      padding: 20px;
-    }
-  }

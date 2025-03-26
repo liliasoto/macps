@@ -4,23 +4,8 @@ import React from "react"
 import { useState } from "react"
 import { Camera, Mail, Building, UserCircle, Briefcase, Calendar, MapPin, Edit } from "lucide-react"
 import Bar from "./bar.tsx"
+import { useAuth } from "../context/authContext.tsx"
 import "../styles/profileStyles.css"
-
-// Datos de ejemplo para el usuario
-const userData = {
-  id: 1,
-  nombre: "Lilia Soto",
-  apellidoPaterno: "Soto",
-  apellidoMaterno: "Llamas",
-  email: "liliasoll@example.com",
-  usuario: "liliasoll",
-  rol: "Administrador",
-  departamento: "Sistemas y computación",
-  fechaRegistro: "2022-05-15",
-  ubicacion: "Campus Principal",
-  avatar: null, // URL de la imagen de avatar, null para usar el icono por defecto
-  bio: "Coordinadora de procesos de certificación con más de 8 años de experiencia en acreditación académica. Especialista en gestión de evidencias y documentación para organismos certificadores.",
-}
 
 // Datos de ejemplo para actividades recientes
 const actividadesRecientes = [
@@ -76,8 +61,11 @@ const procesosAsignados = [
 ]
 
 const Profile: React.FC = () => {
+  const { user } = useAuth()
   const [isEditingBio, setIsEditingBio] = useState(false)
-  const [bio, setBio] = useState(userData.bio)
+  const [bio, setBio] = useState(
+    "Coordinador de procesos de certificación con experiencia en acreditación académica. Especialista en gestión de evidencias y documentación para organismos certificadores.",
+  )
 
   const handleSaveBio = () => {
     // Aquí iría la lógica para guardar la bio en el backend
@@ -89,6 +77,8 @@ const Profile: React.FC = () => {
     return new Date(dateString).toLocaleDateString("es-MX", options)
   }
 
+  if (!user) return null
+
   return (
     <div className="main-container">
       <Bar />
@@ -96,8 +86,8 @@ const Profile: React.FC = () => {
         <div className="profile-header">
           <div className="profile-avatar-container">
             <div className="profile-avatar">
-              {userData.avatar ? (
-                <img src={userData.avatar || "/placeholder.svg"} alt={userData.nombre} />
+              {user.avatar ? (
+                <img src={user.avatar || "/placeholder.svg"} alt={user.nombre} />
               ) : (
                 <UserCircle size={80} />
               )}
@@ -107,27 +97,29 @@ const Profile: React.FC = () => {
             </div>
           </div>
           <div className="profile-info">
-            <h1>{userData.nombre}</h1>
+            <h1>
+              {user.nombre} {user.apellidoPaterno} {user.apellidoMaterno}
+            </h1>
             <div className="profile-details">
               <div className="profile-detail">
                 <Mail size={16} />
-                <span>{userData.email}</span>
+                <span>{user.email}</span>
               </div>
               <div className="profile-detail">
                 <Building size={16} />
-                <span>{userData.departamento}</span>
+                <span>{user.departamento}</span>
               </div>
               <div className="profile-detail">
                 <Briefcase size={16} />
-                <span>{userData.rol}</span>
+                <span>{user.rol}</span>
               </div>
               <div className="profile-detail">
                 <Calendar size={16} />
-                <span>Miembro desde {formatDate(userData.fechaRegistro)}</span>
+                <span>Miembro desde {formatDate("2022-05-15")}</span>
               </div>
               <div className="profile-detail">
                 <MapPin size={16} />
-                <span>{userData.ubicacion}</span>
+                <span>Campus Principal</span>
               </div>
             </div>
           </div>
