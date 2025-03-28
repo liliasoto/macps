@@ -51,7 +51,7 @@ const ForgotPassword: React.FC = () => {
         {!isSubmitted ? (
           <>
             <h2 className="forgot-password-title">Recuperar contraseña</h2>
-            <p className="forgot-password-description">
+            <p>
               Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu contraseña.
             </p>
 
