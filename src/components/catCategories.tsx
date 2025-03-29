@@ -61,10 +61,10 @@ const CatCategories: React.FC = () => {
     <div className="main-container">
       <Bar />
       <div className="catalog-container">
-        <h1 className="catalog-title">Catálogo de Categorías</h1>
+        <h1 className="catalog-title">Catálogo de categorías</h1>
         <div className="catalog-actions">
           <button className="catalog-button" onClick={() => handleOpenModal()}>
-            Agregar Categoría
+            Agregar categoría
           </button>
         </div>
         <table className="catalog-table">

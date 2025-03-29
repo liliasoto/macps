@@ -121,7 +121,7 @@ const Users: React.FC = () => {
     <div className="main-container">
       <Bar />
       <div className="catalog-container">
-        <h1 className="catalog-title">Gestión de Usuarios</h1>
+        <h1 className="catalog-title">Gestión de usuarios</h1>
         <div className="users-controls">
           <select
             name="Departamentos"
@@ -139,7 +139,7 @@ const Users: React.FC = () => {
         </div>
         <div className="catalog-actions">
           <button className="catalog-button" onClick={handleAddUser}>
-            Agregar Usuario
+            Agregar usuario
           </button>
         </div>
         <div className="users-table-container">

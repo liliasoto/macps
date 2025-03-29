@@ -48,10 +48,10 @@ const CatOrganisms: React.FC = () => {
     <div className="main-container">
       <Bar />
       <div className="catalog-container">
-        <h1 className="catalog-title">Catálogo de Organismos</h1>
+        <h1 className="catalog-title">Catálogo de organismos</h1>
         <div className="catalog-actions">
           <button className="catalog-button" onClick={() => handleOpenModal()}>
-            Agregar Organismo
+            Agregar organismo
           </button>
         </div>
         <table className="catalog-table">

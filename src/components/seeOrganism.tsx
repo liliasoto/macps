@@ -72,7 +72,7 @@ const SeeOrganism: React.FC = () => {
     <div className="main-container">
       <Bar />
       <main className="see-org-content">
-        <h1>Organismos Certificadores</h1>
+        <h1>Organismos certificadores</h1>
         <div className="org-table-container">
           <table className="org-table">
             <thead>
