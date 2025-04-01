@@ -73,11 +73,11 @@
 .catalog-button:hover {
   background-color: var(--accent-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
+  box-shadow: 0 4px 12px rgba(27, 57, 106, 0.2);
 }
 
 .dark .catalog-button:hover {
-  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(45, 93, 168, 0.3);
 }
 
 /* Estilos para los botones de acción */

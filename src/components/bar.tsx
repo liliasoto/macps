@@ -3,7 +3,7 @@
 import React from "react"
 import { useState, useEffect, useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import logo from "../images/logomacpspng.png"
+import logo from "../images/logoblanco.png"
 import { Bell, User, ChevronDown, Menu } from "lucide-react"
 import NotificationsPanel from "./notificationsPanel.tsx"
 import UserMenu from "./userMenu.tsx"

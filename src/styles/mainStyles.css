@@ -11,8 +11,8 @@
   --text-primary: #333333;
   --text-secondary: #666666;
   --text-tertiary: #888888;
-  --accent-primary: #3533cd;
-  --accent-secondary: #2826a0;
+  --accent-primary: #1b396a;
+  --accent-secondary: #11ae02;
   --border-color: #e0e0e0;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --shadow-color-strong: rgba(0, 0, 0, 0.2);
@@ -20,7 +20,7 @@
   --card-background: #ffffff;
   --input-background: #ffffff;
   --input-border: #cccccc;
-  --success-color: #4caf50;
+  --success-color: #FBD636;
   --warning-color: #ff9800;
   --error-color: #f44336;
   --info-color: #2196f3;
@@ -33,8 +33,8 @@
   --text-primary: #f5f5f5;
   --text-secondary: #e0e0e0;
   --text-tertiary: #aaaaaa;
-  --accent-primary: #4a4aff;
-  --accent-secondary: #6a6aff;
+  --accent-primary: #2d5da8;
+  --accent-secondary: #11ae02;
   --border-color: #444444;
   --shadow-color: rgba(0, 0, 0, 0.3);
   --shadow-color-strong: rgba(0, 0, 0, 0.5);
@@ -42,7 +42,7 @@
   --card-background: #1e1e1e;
   --input-background: #2c2c2c;
   --input-border: #444444;
-  --success-color: #66bb6a;
+  --success-color: #FBD636;
   --warning-color: #ffa726;
   --error-color: #ef5350;
   --info-color: #42a5f5;
@@ -83,7 +83,7 @@ h6 {
 
 /* Estilos de la barra de navegación */
 .main-nav {
-  background-color: var(--background-secondary);
+  background-color: var(--accent-primary);
   padding: 10px 0;
   box-shadow: 0 2px 4px var(--shadow-color);
   position: sticky;
@@ -131,7 +131,7 @@ h6 {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-primary);
+  color: white;
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -146,21 +146,21 @@ h6 {
 }
 
 .dropdown-toggle:hover {
-  color: var(--accent-primary);
-  background-color: rgba(53, 51, 205, 0.05);
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .dark .dropdown-toggle:hover {
-  background-color: rgba(74, 74, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .dropdown-toggle.active {
-  color: var(--accent-primary);
-  background-color: rgba(53, 51, 205, 0.1);
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .dark .dropdown-toggle.active {
-  background-color: rgba(74, 74, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .dropdown-toggle .rotate,
@@ -216,12 +216,12 @@ h6 {
 
 .dropdown-menu p a:hover {
   color: var(--accent-primary);
-  background-color: rgba(53, 51, 205, 0.05);
+  background-color: rgba(25, 57, 106, 0.05);
   border-left: 3px solid var(--accent-primary);
 }
 
 .dark .dropdown-menu p a:hover {
-  background-color: rgba(74, 74, 255, 0.1);
+  background-color: rgba(44, 104, 193, 0.1);
 }
 
 .icon-container {
@@ -233,7 +233,7 @@ h6 {
   border: none;
   cursor: pointer;
   margin-left: 15px;
-  color: var(--text-primary);
+  color: white;
   transition: color 0.3s ease, background-color 0.3s ease;
   width: 40px;
   height: 40px;
@@ -245,12 +245,12 @@ h6 {
 }
 
 .icon-button:hover {
-  color: var(--accent-primary);
-  background-color: rgba(53, 51, 205, 0.05);
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .dark .icon-button:hover {
-  background-color: rgba(74, 74, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu-button {
@@ -259,7 +259,7 @@ h6 {
   border: none;
   cursor: pointer;
   margin-left: 15px;
-  color: var(--text-primary);
+  color: white;
   width: 40px;
   height: 40px;
   align-items: center;
@@ -359,11 +359,11 @@ h6 {
 }
 
 .mobile-menu-item:hover {
-  background-color: rgba(53, 51, 205, 0.05);
+  background-color: rgba(25, 57, 106, 0.05);
 }
 
 .dark .mobile-menu-item:hover {
-  background-color: rgba(74, 74, 255, 0.1);
+  background-color: rgba(44, 104, 193, 0.1);
 }
 
 .mobile-menu-item span {
@@ -405,13 +405,13 @@ h6 {
 }
 
 .mobile-submenu li a:hover {
-  background-color: rgba(53, 51, 205, 0.05);
+  background-color: rgba(25, 57, 106, 0.05);
   color: var(--accent-primary);
   border-left: 3px solid var(--accent-primary);
 }
 
 .dark .mobile-submenu li a:hover {
-  background-color: rgba(74, 74, 255, 0.1);
+  background-color: rgba(44, 104, 193, 0.1);
 }
 
 /* Estilos del contenido principal */
@@ -496,11 +496,11 @@ h6 {
 .cta-button:hover {
   background-color: var(--accent-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
+  box-shadow: 0 4px 12px rgba(25, 57, 106, 0.2);
 }
 
 .dark .cta-button:hover {
-  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(44, 104, 193, 0.3);
 }
 
 .main-content::before {
@@ -508,14 +508,14 @@ h6 {
   position: absolute;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(53, 51, 205, 0.4) 0%, rgba(53, 51, 205, 0) 70%);
+  background: radial-gradient(circle, rgba(25, 57, 106, 0.4) 0%, rgba(25, 57, 106, 0) 70%);
   border-radius: 50%;
   z-index: 0;
   transition: background 0.3s ease;
 }
 
 .dark .main-content::before {
-  background: radial-gradient(circle, rgba(74, 74, 255, 0.3) 0%, rgba(74, 74, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(44, 104, 193, 0.3) 0%, rgba(44, 104, 193, 0) 70%);
 }
 
 .main-content::before {

@@ -58,12 +58,12 @@ h1 {
 }
 
 .org-table tr.selected {
-  background-color: rgba(53, 51, 205, 0.1);
+  background-color: rgba(27, 57, 106, 0.1);
   transition: background-color 0.3s ease;
 }
 
 .dark .org-table tr.selected {
-  background-color: rgba(74, 74, 255, 0.15);
+  background-color: rgba(45, 93, 168, 0.15);
 }
 
 .org-actions {
@@ -94,11 +94,11 @@ h1 {
 .btn-primary:hover:not(:disabled) {
   background-color: var(--accent-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
+  box-shadow: 0 4px 12px rgba(27, 57, 106, 0.2);
 }
 
 .dark .btn-primary:hover:not(:disabled) {
-  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(45, 93, 168, 0.3);
 }
 
 .btn-secondary {
@@ -113,20 +113,26 @@ h1 {
 
 .btn-add {
   background-color: var(--success-color);
-  color: white;
+  color: var(--text-primary);
   display: block;
   margin: 0 auto;
   border-radius: 30px;
 }
 
 .btn-add:hover {
-  background-color: #45a049;
+  background-color: #fbb936;
   transform: translateY(-2px);
+  color: #333333;
   box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
 }
 
 .dark .btn-add:hover {
   box-shadow: 0 4px 12px rgba(102, 187, 106, 0.3);
+  color: #333333;
+}
+
+.dark .btn-add {
+  color: #333333;
 }
 
 button:disabled {

@@ -52,22 +52,22 @@
 }
 
 .settings-tab:hover {
-  background-color: rgba(53, 51, 205, 0.05);
+  background-color: rgba(27, 57, 106, 0.05);
   color: var(--accent-primary);
 }
 
 .dark .settings-tab:hover {
-  background-color: rgba(74, 74, 255, 0.1);
+  background-color: rgba(45, 93, 168, 0.1);
 }
 
 .settings-tab.active {
-  background-color: rgba(53, 51, 205, 0.1);
+  background-color: rgba(27, 57, 106, 0.1);
   color: var(--accent-primary);
   font-weight: 500;
 }
 
 .dark .settings-tab.active {
-  background-color: rgba(74, 74, 255, 0.15);
+  background-color: rgba(45, 93, 168, 0.15);
 }
 
 .settings-tab svg {
@@ -153,11 +153,11 @@
 .form-group input:focus {
   outline: none;
   border-color: var(--accent-primary);
-  box-shadow: 0 0 0 2px rgba(53, 51, 205, 0.1);
+  box-shadow: 0 0 0 2px rgba(27, 57, 106, 0.1);
 }
 
 .dark .form-group input:focus {
-  box-shadow: 0 0 0 2px rgba(74, 74, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(45, 93, 168, 0.15);
 }
 
 .password-input-container {
@@ -223,11 +223,11 @@
 .settings-save-button:hover {
   background-color: var(--accent-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(53, 51, 205, 0.2);
+  box-shadow: 0 4px 12px rgba(27, 57, 106, 0.2);
 }
 
 .dark .settings-save-button:hover {
-  box-shadow: 0 4px 12px rgba(74, 74, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(45, 93, 168, 0.3);
 }
 
 .settings-info {

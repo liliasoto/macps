@@ -40,6 +40,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: border-color 0.3s ease;
 }
 
 .panel-header h3 {
@@ -48,6 +49,7 @@
   color: var(--text-primary);
   font-weight: 700;
   font-family: "Nunito", sans-serif;
+  transition: color 0.3s ease;
 }
 
 .mark-all-read {
@@ -58,6 +60,7 @@
   cursor: pointer;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  transition: color 0.3s ease;
 }
 
 .mark-all-read:hover {
@@ -77,6 +80,7 @@
   justify-content: center;
   padding: 30px;
   color: var(--text-tertiary);
+  transition: color 0.3s ease;
 }
 
 .empty-state svg {
@@ -96,7 +100,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.3s ease;
 }
 
 .notification-item:hover {
@@ -104,11 +108,11 @@
 }
 
 .notification-item.unread {
-  background-color: rgba(53, 51, 205, 0.05);
+  background-color: rgba(27, 57, 106, 0.05);
 }
 
 .dark .notification-item.unread {
-  background-color: rgba(74, 74, 255, 0.1);
+  background-color: rgba(45, 93, 168, 0.1);
 }
 
 .notification-content {
@@ -123,18 +127,22 @@
 
 .notification-icon.warning {
   color: var(--warning-color);
+  transition: color 0.3s ease;
 }
 
 .notification-icon.success {
   color: var(--success-color);
+  transition: color 0.3s ease;
 }
 
 .notification-icon.error {
   color: var(--error-color);
+  transition: color 0.3s ease;
 }
 
 .notification-icon.info {
   color: var(--info-color);
+  transition: color 0.3s ease;
 }
 
 .notification-text {
@@ -146,11 +154,13 @@
   font-size: 14px;
   line-height: 1.4;
   color: var(--text-primary);
+  transition: color 0.3s ease;
 }
 
 .notification-date {
   font-size: 12px;
   color: var(--text-tertiary);
+  transition: color 0.3s ease;
 }
 
 .mark-read-button {
@@ -164,20 +174,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mark-read-button:hover {
-  background-color: rgba(53, 51, 205, 0.1);
+  background-color: rgba(27, 57, 106, 0.1);
 }
 
 .dark .mark-read-button:hover {
-  background-color: rgba(74, 74, 255, 0.15);
+  background-color: rgba(45, 93, 168, 0.15);
 }
 
 .panel-footer {
   padding: 12px 15px;
   border-top: 1px solid var(--border-color);
   text-align: center;
+  transition: border-color 0.3s ease;
 }
 
 .view-all-link {
@@ -186,6 +198,7 @@
   font-size: 14px;
   font-weight: 600;
   font-family: "Nunito", sans-serif;
+  transition: color 0.3s ease;
 }
 
 .view-all-link:hover {
@@ -208,6 +221,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
 /* Estilos para el menú de usuario */
@@ -220,6 +234,7 @@
   background-color: var(--background-tertiary);
   display: flex;
   align-items: center;
+  transition: background-color 0.3s ease;
 }
 
 .user-avatar {
@@ -233,6 +248,7 @@
   align-items: center;
   justify-content: center;
   color: var(--text-tertiary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .user-avatar img {
@@ -251,6 +267,7 @@
   color: var(--text-primary);
   font-weight: 700;
   font-family: "Nunito", sans-serif;
+  transition: color 0.3s ease;
 }
 
 .user-info p {
@@ -259,11 +276,13 @@
   color: var(--accent-primary);
   font-weight: 600;
   font-family: "Nunito", sans-serif;
+  transition: color 0.3s ease;
 }
 
 .user-info span {
   font-size: 12px;
   color: var(--text-tertiary);
+  transition: color 0.3s ease;
 }
 
 .menu-items {
@@ -276,7 +295,7 @@
   padding: 12px 20px;
   color: var(--text-primary);
   text-decoration: none;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.3s ease;
   cursor: pointer;
   border: none;
   background: none;
@@ -293,16 +312,19 @@
 .menu-item svg {
   margin-right: 12px;
   color: var(--text-tertiary);
+  transition: color 0.3s ease;
 }
 
 .menu-item.logout {
   border-top: 1px solid var(--border-color);
   margin-top: 5px;
   color: var(--error-color);
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 .menu-item.logout svg {
   color: var(--error-color);
+  transition: color 0.3s ease;
 }
 
 /* Estilos responsivos */
